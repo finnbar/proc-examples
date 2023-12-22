@@ -7,3 +7,13 @@ This repo contains a collection of small code snippets written using Haskell's p
 * `Shadowing.hs` tests more examples related to variables being shadowed. We have two tests: `nestedProc` has a proc defined within a proc via a `let`, which contains some variables defined in the outer proc; and `shadowingProc` has a single proc which immediately redefines a variable.
 
 These tests rely on `Primitives.hs`, which contains a few simple arrows used throughout the tests. We also provide `SF.hs`, which provides a very simple arrow like those used in Arrowized Functional Reactive Programming (AFRP), allowing you to test these examples.
+
+If you want to test the examples, I would recommend doing something like:
+
+```haskell
+import SF
+fst $ runMany procExampleHere [1,2,3,4,5]
+
+```
+
+which will run `procExampleHere` with the input 1, then 2 and so on.
