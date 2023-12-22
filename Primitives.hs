@@ -13,9 +13,6 @@ sum_ = arr $ \(x,y) -> x+y
 pre :: a -> SF a a
 pre v0 = SF $ \v -> (v0, pre v)
 
-sumOverTime :: (Num a) => SF a a
-sumOverTime = loop $ sum_ >>> dup >>> second (pre 0)
-
 dup :: Arrow ar => ar a (a,a)
 dup = arr $ \x -> (x,x)
 
